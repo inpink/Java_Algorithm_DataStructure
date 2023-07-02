@@ -35,7 +35,7 @@ public class Main { //class명 Main 필수
             //System.out.println(Arrays.toString(graph[0]));
 
             PriorityQueue<Integer[]> heap = new PriorityQueue<>((o1, o2) -> {
-                return  o1[1]- o2[1]; //작은게 앞으로 가도록 빼줌
+                return  o1[2]- o2[2]; //작은게 앞으로 가도록 빼줌
             });
 
             //다익스트라
