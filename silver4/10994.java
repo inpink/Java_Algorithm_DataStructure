@@ -21,17 +21,17 @@ public class Main {
         pointStar(0, m); //별 그려서 2차원 배열에 담기
 
         //정답 출력
+        StringBuilder sb= new StringBuilder();
         for(int i = 0; i < m; i++) {
             for(int j = 0; j < m; j++) {
-                System.out.print(star[i][j]);
+                sb.append(star[i][j]);
             }
-            System.out.println();
+            sb.append("\n");
         }
+        System.out.println(sb.toString());
     }
 
     public static void pointStar(int a, int b) {
-
-        if (b == 1) return; //중앙에 별 1개 그려지면 그만 그려야 함
 
         for(int i = a; i < b; i++) { //별 그리는 범위 a~b
             star[a][i] = '*'; //윗줄, 왼쪽부터 오른쪽으로 쭉 그리기
@@ -39,6 +39,9 @@ public class Main {
             star[i][a] = '*'; // 왼줄 , 왼쪽부터 오른쪽으로 쭉 그리기
             star[i][b-1] = '*'; // 오른줄 , 왼쪽부터 오른쪽으로 쭉 그리기
         }
+
+        if (b == 1) return; //중앙에 별 1개 그려지면 그만 그려야 함
+        //m=1인 경우를 대비하여 이 코드가 상단이 아닌 여기에 와야함
 
 
         pointStar(a+2, b-2); //★2행, 2열만큼 안쪽으로 이동함
