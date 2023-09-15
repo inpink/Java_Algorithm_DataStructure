@@ -29,16 +29,18 @@ public class Main {
         }
     }
 
-    public static void pointStar(int n, int m) {
-        for(int i = n; i < m; i++) { //별 그리는 범위 n~m
-            star[n][i] = '*'; //윗줄, 왼쪽부터 오른쪽으로 쭉 그리기
-            star[m-1][i] = '*'; //맨아랫줄 , 왼쪽부터 오른쪽으로 쭉 그리기
-            star[i][n] = '*'; // 왼줄 , 왼쪽부터 오른쪽으로 쭉 그리기
-            star[i][m-1] = '*'; // 오른줄 , 왼쪽부터 오른쪽으로 쭉 그리기
+    public static void pointStar(int a, int b) {
+
+        if (b == 1) return; //중앙에 별 1개 그려지면 그만 그려야 함
+
+        for(int i = a; i < b; i++) { //별 그리는 범위 a~b
+            star[a][i] = '*'; //윗줄, 왼쪽부터 오른쪽으로 쭉 그리기
+            star[b-1][i] = '*'; //맨아랫줄 , 왼쪽부터 오른쪽으로 쭉 그리기
+            star[i][a] = '*'; // 왼줄 , 왼쪽부터 오른쪽으로 쭉 그리기
+            star[i][b-1] = '*'; // 오른줄 , 왼쪽부터 오른쪽으로 쭉 그리기
         }
 
-        if (m == 1) return; //중앙에 별 1개 그려지면 그만 그려야 함
 
-        pointStar(n+2, m-2); //★2행, 2열만큼 안쪽으로 이동함
+        pointStar(a+2, b-2); //★2행, 2열만큼 안쪽으로 이동함
     }
 }
